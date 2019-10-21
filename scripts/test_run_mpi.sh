@@ -7,4 +7,4 @@ duration=1000
 outdt=10
 writeoutput=true
 
-$OTMMPIHOME/scripts/run_all.sh $prefix $configfile $n $duration $writeoutput $outdt
+$OTMMPIHOME/scripts/run_mpi.sh $n $prefix 1 $duration $writeoutput $outdt

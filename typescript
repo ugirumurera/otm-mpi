@@ -1,0 +1,97 @@
+Script started on 2020-01-04 13:59:00-0800
+juliette@cori10:~/OTM/new-otm-mpi/otm-mpi> cd scripts/
+juliette@cori10:~/OTM/new-otm-mpi/otm-mpi/scripts> ls
+#run_splitter.sh#     build_mpi.sh       run_all.sh          test_run_all.sh
+batch_run_mpi.sh      build_splitter.sh  run_compare_veh.sh  test_run_compare_veh.sh
+build_all.sh          clean_all.sh       run_mpi.sh          test_run_mpi.sh
+build_compare_veh.sh  hpc_run_mpi.sh     run_splitter.sh     test_run_splitter.sh
+juliette@cori10:~/OTM/new-otm-mpi/otm-mpi/scripts> clear
+[3J[H[2Jjuliette@cori10:~/OTM/new-otm-mpi/otm-mpi/scripts> salloc -N 1 -C haswell -t 30
+salloc: Pending job allocation 27228529
+salloc: job 27228529 queued and waiting for resources
+salloc: job 27228529 has been allocated resources
+salloc: Granted job allocation 27228529
+salloc: Waiting for resource configuration
+salloc: Nodes nid00557 are ready for job
+juliette@nid00557:~/OTM/new-otm-mpi/otm-mpi/scripts> emacs test_run_mpi.sh 
+[?1049h[22;0;0t[?12;25h[?1h=[>0c[H[2J[23d[K[H[?25l[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[30m[48;5;250m-=--:----F1  [39;49m[1m[30m[48;5;250m*scratch*   [0m[39;49m[30m[48;5;250m   All L1     (Lisp Interaction) ------------------------------------------[39;49m
+[A[2d[?12l[?25h[?12;25h[?2004h[23d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[H
+[?12l[?25h[?12;25h[23d[?25lSetting up indent for shell type bash[K[H
+[?12l[?25h[?12;25h[23d[?25lIndentation variables are now local.[K[H
+[?12l[?25h[?12;25h[23;13H[?25lsetup for shell type bash[H
+[?12l[?25h[?12;25h[23d[?25lIndentation setup for shell type bash[K[H[7mFile Edit Options Buffers Tools Sh-Script Help                                                      [0m[39;49m[27m
+[A
+[38;5;124m#!/bin/[39;49m[38;5;129mbash[39;49m[38;5;124m                                                                                         [39;49m
+[A
+[K
+[38;5;60mexport[39;49m [38;5;130mOTMMPIHOME[39;49m=/global/homes/j/juliette/OTM/new-otm-mpi/otm-mpi/[K
+[K
+[38;5;124m#export PATH=$HOME/local/open-mpi/bin:$PATH                                                         [39;49m
+[A
+module load openmpi[K
+[38;5;60mexport[39;49m [38;5;130mOMPI_MCA_btl[39;49m=self,vader,tcp[K
+[38;5;124m#export PATH=$PATH:/usr/common/software/metis/5.1.0/bin                                             [39;49m
+[A
+[38;5;124m#export OMPI_MCA_btl=self,vader,tcp                                                                 [39;49m
+[A
+[K
+[38;5;130mn[39;49m=2[K
+[38;5;130mprefix[39;49m=$[38;5;130mOTMMPIHOME[39;49m/test/miami_dade/$[38;5;130mn[39;49m/miami_dade[K
+[38;5;124m#prefix=$OTMMPIHOME/test/small_Miami/s_Miami                                                        [39;49m
+[A
+[38;5;130mduration[39;49m=6[K
+[38;5;130mwriteoutput[39;49m=true[K
+[38;5;130moutdt[39;49m=10[K
+[38;5;130mverbose[39;49m=true[K
+[K
+$[38;5;130mOTMMPIHOME[39;49m/scripts/run_mpi.sh $[38;5;130mn[39;49m $[38;5;130mprefix[39;49m 1 $[38;5;130mduration[39;49m $[38;5;130mwriteoutput[39;49m $[38;5;130moutdt[39;49m $[38;5;130mverbose[39;49m[K
+[K
+[30m[48;5;250m-=--:----F1  [39;49m[1m[30m[48;5;250mtest_run_mpi.sh[0m[39;49m[30m[48;5;250m   All L1    Git:fd53f9a  (Shell-script[bash]) -------------------------[39;49m
+[A[2d[?12l[?25h[?12;25h[23d[K[22;37H[?25l[30m[48;5;250m2[39;49m[H
+
+[?12l[?25h[?12;25h[22;37H[?25l[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[22;37H[?25l[30m[48;5;250m4[39;49m[5;1H[?12l[?25h[?12;25h[22;37H[?25l[30m[48;5;250m5[39;49m[6;1H[?12l[?25h[?12;25h[22;37H[?25l[30m[48;5;250m6[39;49m[7;1H[?12l[?25h[?12;25h[22;37H[?25l[30m[48;5;250m7[39;49m[8;1H[?12l[?25h[?12;25h[22;37H[?25l[30m[48;5;250m8[39;49m[9;1H[?12l[?25h[?12;25h[22;37H[?25l[30m[48;5;250m9[39;49m[10;1H[?12l[?25h[?12;25h[22;37H[?25l[30m[48;5;250m10[39;49m[11;1H[?12l[?25h[?12;25h[22;38H[?25l[30m[48;5;250m1[39;49m[12;1H[?12l[?25h[?12;25h[22;38H[?25l[30m[48;5;250m2[39;49m[13;1H[?12l[?25h[?12;25h[22;38H[?25l[30m[48;5;250m3[39;49m[14;1H[?12l[?25h[?12;25h[22;38H[?25l[30m[48;5;250m4[39;49m[15;1H[?12l[?25h[?12;25h[C[C[C[C[C[C		[C[C[22;38H[?25l[30m[48;5;250m5[39;49m[16;1H[?12l[?25h[?12;25h[22;38H[?25l[30m[48;5;250m4[39;49m[15;11H[?12l[?25h[?12;25h[K[22;6H[?25l[30m[48;5;250m**[39;49m[15;10H[?12l[?25h[?12;25h[?25l1[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[1;22r[21;1H[1M[1;23r[23;1H[?25l[38;5;20m C-r, d or C-h) [39;49m[A[38;5;20mSave file /global/homes/j/juliette/OTM/new-otm-mpi/otm-mpi/scripts/test_run_mpi.sh? (y, n, !, ., q,[39;49m\
+[A
+		[?12l[?25h[?12;25h[?25l C-r, d or C-h) y[ASave file /global/homes/j/juliette/OTM/new-otm-mpi/otm-mpi/scripts/test_run_mpi.sh? (y, n, !, ., q,[23;18H[?12l[?25h[?12;25h[K[22;4H[?25ling file /global/homes/j/juliette/OTM/new-otm-mpi/otm-mpi/scripts/test_run_mpi.sh...[K[15;14H[?12l[?25h[?12;25h[22;1H[?25lWrote /global/homes/j/juliette/OTM/new-otm-mpi/otm-mpi/scripts/test_run_mpi.sh[K[15;14H[?12l[?25h[?12;25h[21;1H[K
+[?25l[30m[48;5;250m-=--:----F1  [39;49m[1m[30m[48;5;250mtest_run_mpi.sh[0m[39;49m[30m[48;5;250m   All L14   Git:fd53f9a  (Shell-script[bash]) -------------------------[39;49m
+[15;14H[?12l[?25h[?12;25h[23;1H[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mjuliette@nid00557:~/OTM/new-otm-mpi/otm-mpi/scripts> time ./test_run_mpi.sh  
+[MPI runner] (Rank 1) Reading metagraph from JSON[MPI runner] (Rank 0) Reading metagraph from JSON
+
+[MPI runner] (Rank 1) Extracting subscenario
+[MPI runner] (Rank 0) Extracting subscenario
+[MPI runner] (Rank 1) Creating communicator and translator
+[MPI runner] (Rank 0) Creating communicator and translator
+[MPI runner] (Rank 0) Running
+[MPI runner] (Rank 1) Running
+salloc: Job 27228529 has exceeded its time limit and its allocation has been revoked.
+Terminated
+
+real	29m11.830s
+user	0m0.019s
+sys	0m0.006s
+juliette@nid00557:~/OTM/new-otm-mpi/otm-mpi/scripts> exit
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: error: nid00557: task 0: Exited with exit code 143
+srun: Terminating job step 27228529.0
+juliette@cori10:~/OTM/new-otm-mpi/otm-mpi/scripts> exit

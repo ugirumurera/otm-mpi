@@ -1,7 +1,6 @@
 package tests;
 
-import api.API;
-import runner.OTM;
+import api.OTM;
 
 public class XMLSplitterTest {
 
@@ -19,10 +18,10 @@ public class XMLSplitterTest {
         // try to run each one
         for(int i=0;i<num_partitions;i++){
             String cfg_file = String.format("%s_cfg_%d.xml",prefix,i);
-            API api = OTM.load(cfg_file,false);
+            OTM otm = new OTM();
+            otm.load(cfg_file,true,false);
             System.out.println("Running partioned file " + i);
-            api.run(0f, duration);
-
+            otm.run(0f, duration);
         }
 
         System.out.println("done");

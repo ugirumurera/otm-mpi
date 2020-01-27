@@ -66,9 +66,11 @@ public class RunnerMPI {
                 timer = new Timer(run_mpi);
                 OTMdev otm = new OTMdev(new OTM(String.format("%s_cfg_%d.xml",prefix,my_rank),false,false));
                 otm.otm.initialize(0f);
-                if(writeoutput)
+                if(writeoutput){
                     otm.otm.output.request_links_veh(output_prefix,output_folder, null, otm.otm.scenario.get_link_ids(), out_dt);
-                load_subscenario_time = timer.get_total_time();
+		    otm.otm.output.request_links_flow(output_prefix,output_folder, null, otm.otm.scenario.get_link_ids(), out_dt);
+		}
+		load_subscenario_time = timer.get_total_time();
 
                 timer = new Timer(run_mpi);
                 OTMRunner.run(otm.scenario, 0f,duration);
